@@ -58,7 +58,7 @@ class dda():
   def epsilon_drude(self, ww, wp=1.0, eta=None, epsilon_infinity=1.0, **kw):
     """ Compute a Drude dielectruc function eps = eps(-infinity) - wp^2/(-w^2+i*eta*w) """
     eta = ww[1]-ww[0] if eta is None else eta
-    return epsilon_infinity - wp**2 / (ww**2+1j*eta*ww)
+    return epsilon_infinity - wp**2 / (ww**2+1j*eta)
 
   def alpha_clausius_mossotti(self, iw2epsilon, d=1.0, **kw):
     """ Polarizability of a sphere from the dielectric function of the material, according to Clausius-Mossotti """
@@ -78,11 +78,11 @@ class dda():
     
 if __name__ == '__main__':
   import matplotlib.pyplot as plt
-  ww = arange(0.0, 1.0, 0.005)
+  ww = arange(0.01, 1.0, 0.005)
 
-  coords = array([[0.0, 1.01, 0.0], [0.0, -1.0, 0.0],[+0.0, 1.0, 0.0]])
+  coords = array([[1.0, 0.01, 0.0], [-1.0, 0.0, 0.0],[1.0, 0.0, 0.0]])
   c2 = dda(coords)
-  abs_dip2 = c2.absorption_dipole(ww, d=0.005)
+  abs_dip2 = c2.absorption_dipole(ww, d=5.0)
 
   #plt.plot(ww, abs_dip2.real, label='abs1')
   plt.plot(ww, abs_dip2.imag, label='abs2')
