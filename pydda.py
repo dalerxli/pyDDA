@@ -35,7 +35,7 @@ class dda():
     return Ajk
   
   interaction_tensor = interaction_tensor_loops
-    
+
   def polarization_direct_solver(self, i2alph, i2einc, k=0.0):
     from numpy.linalg import solve 
     """ 
