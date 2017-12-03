@@ -23,7 +23,7 @@ class KnowValues(unittest.TestCase):
     t2 = timer(); print(' interaction time with simple loops ', t2-t1); t1=t2
     
     ajk2 = c2.interaction_tensor(i2alpha, ks=4.0)
-    #print('abs(ajk1-ajk2).sum()/ajk1.size', abs(ajk1-ajk2).sum()/ajk1.size)
+    print('abs(ajk1-ajk2).sum()/ajk1.size', abs(ajk1-ajk2).sum()/ajk1.size)
     t2 = timer(); print(' interaction time with precomput mat', t2-t1); t1=t2
     
     self.assertTrue(np.allclose(ajk1, ajk2))

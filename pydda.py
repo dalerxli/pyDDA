@@ -24,7 +24,7 @@ class dda():
     for j,rj in enumerate(i2xyz):
       for k,rk in enumerate(i2xyz):
         if j==k:
-          Ajk[j,:,k,:] = 1.0/i2alpha[j]
+          Ajk[j,:,k,:] = i3*1.0/i2alpha[j]
         else:
           vjk = rj - rk
           djk = sqrt((vjk*vjk).sum())
